@@ -16,12 +16,14 @@ Web browser (for viewing results)
 *🛠️ Installation*
 Clone the repository:
 
-bash   git clone <your-repo-url>
-   cd reddit-image-scraper
+bash   
+git clone <your-repo-url>
+cd reddit-image-scraper
 
 Create a virtual environment (recommended):
 
-bash   python -m venv venv
+bash  
+python -m venv venv
    
    # On Windows:
    venv\Scripts\activate
@@ -31,11 +33,14 @@ bash   python -m venv venv
 
 Install dependencies:
 
-bash   pip install -r requirements.txt
+bash  
+pip install -r requirements.txt
 
 *🚀 Usage*
 Step 1: Run the Scraper
-bashpython scraper.py
+bash
+python scraper.py
+
 This will:
 
 Scrape 10 pages from r/malaysia subreddit (configurable)
@@ -43,11 +48,13 @@ Extract posts with images
 Save results to output/reddit_posts_with_images.json
 
 Configuration Options (edit in scraper.py):
-pythonSUBREDDIT = "malaysia"  # Change to any subreddit
+SUBREDDIT = "malaysia"  # Change to any subreddit
 PAGES_TO_SCRAPE = 10    # Number of pages to scrape
 
 Step 2: View Results in Web Browser
-bashpython app.py
+bash
+python app.py
+
 Then open your web browser and go to: http://localhost:5000
 
 *📁 Project Structure*
@@ -72,3 +79,52 @@ json[
     "created_utc": 1640995200
   }
 ]
+
+
+🎨 Web Interface Features
+
+Responsive Design: Works on desktop, tablet, and mobile
+Modern UI: Clean, card-based layout with hover effects
+Image Lazy Loading: Optimized performance for large datasets
+Error Handling: Graceful handling of broken or missing images
+Post Metadata: Shows upvotes, timestamps, and links to original posts
+
+⚙️ How It Works
+Scraping Process
+
+HTTP Requests: Uses Reddit's JSON API (no authentication required)
+Image Detection: Identifies posts with images through multiple methods:
+
+Direct image URLs (jpg, png, gif, etc.)
+Reddit's native image hosting (i.redd.it)
+Imgur links
+Preview image metadata
+
+
+Data Extraction: Extracts title, image URL, score, and timestamps
+Pagination: Handles Reddit's pagination system to scrape multiple pages
+Rate Limiting: Includes delays to be respectful to Reddit's servers
+
+Supported Image Sources
+
+Reddit native images (i.redd.it)
+Imgur (direct links and gallery links)
+Direct image URLs (.jpg, .png, .gif, .webp, .bmp)
+Reddit preview images
+
+🔧 Customization
+Change Subreddit
+Edit scraper.py line 108:
+python
+SUBREDDIT = "your_subreddit_name"
+
+Change Number of Pages
+Edit scraper.py line 109:
+python
+
+PAGES_TO_SCRAPE = 20  # Scrape 20 pages instead of 10
+Modify Output Filename
+In scraper.py, change the filename in the save_to_json() call:
+
+python
+output_file = scraper.save_to_json("custom_filename.json")
