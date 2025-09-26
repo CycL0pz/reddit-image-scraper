@@ -1,11 +1,14 @@
-# reddit-image-scraper
-
 # Reddit Image Scraper
 
-A Python-based web scraper that extracts Reddit posts containing images.
+A Python-based web scraper that extracts Reddit posts containing images from any subreddit.
 
 ## Project Overview
-This project scrapes Reddit posts with images from any subreddit and saves them to JSON format.
+This project will scrape Reddit posts with images and save them to JSON format, with an optional web interface for viewing results.
 
 ## Requirements
 - Python 3.7+
+- Internet connection
+
+## 🛠️ Installation
+```bash
+pip install -r requirements.txt
